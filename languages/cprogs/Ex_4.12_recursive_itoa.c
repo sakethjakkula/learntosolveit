@@ -22,22 +22,19 @@ int main(void)
 	return 0;
 }
 
-void itoa(int n,char s[])
+int i=0;
+void itoa(char s[],int n)
 {
-	static int i;
+if(n <0)
+{
+n=-n;
+s[i++]='-';
+}
 
-	if(n/10)
-		itoa(n/10,s);
-	else
-	{
-		i = 0;
-		if( n < 0)
-			s[i++]='-';
-	}
+if(n/10>0)
+itoa(s,n/10);
 
-	s[i++] = abs(n) % 10 + '0';
-
-	s[i] = '\0';
+s[i++]=n%10+'0';
+s[i]='\0';
 
 }
-	
